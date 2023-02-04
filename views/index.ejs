@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <h1>this is <%= userType %> page</h1>
+  <a href="/logout">logout</a>
+  
+  <% if (userType && userType == 'admin')  {%>
+  <a href="/add_product">Them san pham</a>
+  <%}%>
+  
+  <% if (err) { %>
+   <p><%= err %> </p>
+  <% } %>
+
+  <% if (userType)  {%>
+  <% for (let i = 0; i < datas.length; i++) {%>
+   <a href="/edit_product/<%= datas[i].productName %> ">
+     <p><%= datas[i].productName %>
+   </a></p>
+  <%}}%>
+</body>
+
+</html>

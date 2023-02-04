@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>this is employee page</h1>
+  <% if (userType && userType == 'employee')  {%>
+  <% for (let i = 0; i < datas.length; i++) {%>
+  <p><%= datas[i].productName %> </p>
+  <%}}%>
+</body>
+
+</html>

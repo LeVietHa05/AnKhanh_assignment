@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <% if (err) { %>
+  <p><%= err %> </p>
+  <% } %>
+
+  <form action="/add_product" method="post">
+    <label for="productName">product Name: </label>
+    <input type="text" name="productName" placeholder="productName" id="productName">
+    <br>
+    <label for="quantity">Quantity: </label>
+    <input type="text" name="quantity" placeholder="quantity" id="quantity">
+    <br>
+    <label for="discount">discount: </label>
+    <input type="text" name="discount" placeholder="discount" id="discount">
+    <br>
+    <label for="threshold">threshold: </label>
+    <input type="text" name="threshold" placeholder="threshold" id="threshold">
+    <br>
+    <input type="submit" name="submit" value="submit">
+  </form>
+<a href="/">back</a>
+  <a href="/logout">logout</a>
+</body>
+
+</html>

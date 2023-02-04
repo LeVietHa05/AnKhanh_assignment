@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>edit product</h1>
+  <% if (err) { %>
+  <p><%= err %> </p>
+  <% } %>
+
+  <form action="/edit_product" method="post">
+    <label for="productName">product Name: <%= productName %> </label>
+    <input type="hidden" name="productName" id="productName" value="<%= productName %>" >
+    <br>
+    <label for="quantity">Quantity: </label>
+    <input type="text" name="quantity" placeholder="<%= quantity %> " id="quantity" value="<%= quantity %> ">
+    <br>
+    <label for="discount">discount: </label>
+    <input type="text" name="discount" placeholder="<%= discount %> " id="discount" value="<%= discount %> ">
+    <br>
+    <label for="threshold">threshold: </label>
+    <input type="text" name="threshold" placeholder="<%= threshold %> " id="threshold" value="<%= threshold %> ">
+    <br>
+    <input type="submit" name="submit" value="submit">
+  </form>
+  <a href="/">back</a>
+  <a href="/logout">logout</a>
+</body>
+
+</html>
