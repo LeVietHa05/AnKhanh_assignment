@@ -7,13 +7,22 @@
 </head>
 
 <body>
-  <form action="/login" method="POST">
-    <h3>log in</h3>
-    <label for="username">username: </label>
-    <input type="text" name="username" id="username" />
-    <label for="password">password: </label>
-    <input type="password" name="password" id="password" />
-    <input type="submit" value="log in" />
+  <h1 style="text-align: center;">WELCOME!</h1>
+  <form action="/login" method="POST" style="display: flex; align-items: center; justify-content: center;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid black; border-radius: 5px; background: #ccc; width: 50%;">
+      <h3>Log in</h3>
+      <div style="width: 50%; padding: 16px;">
+        <label for="username" style="text-transform:capitalize;">username: </label>
+        <input type="text" name="username" id="username" />
+      </div>
+      <div style="width: 50%; padding: 16px;">
+        <label for="password" style="text-transform:capitalize;">password: </label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <input type="submit" value="log in" style="position: relative;" />
+      </div>
+    </div>
   </form>
   <% if (err) {
     %>

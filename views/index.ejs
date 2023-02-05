@@ -3,27 +3,131 @@
 
 <head>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      background: #ccc;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    a {
+      color: #000;
+    }
+
+    a:hover {
+      color: aqua;
+    }
+
+    .row a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 10px;
+    }
+
+    .col {
+      width: 50%;
+      border: 1px solid black;
+      border-radius: 5px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .m10 {
+      margin: 10px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: green;
+      color: black;
+    }
+
+    .button:active {
+      background: rgb(3, 230, 3);
+      color: black;
+    }
+
+    .w60 {
+      width: 60%;
+    }
+  </style>
 </head>
 
 <body>
+  <h1 style="text-align: center; text-transform: capitalize;">admin control panel</h1>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="row w60">
+      <p class="col m10 button">
+        <a href="">change password</a>
+      </p>
+      <p class="col m10 button">
+        <a href="">employee account</a>
+      </p>
+    </div>
+    <div class="row w60">
+      <p class="col m10 button">
+        <a href="/add_product" id="add_item">add item</a>
+      </p>
+      <p class="col m10 button" id="edit_item">
+        edit item
+      </p>
+    </div>
+    <div class="row w60">
+      <p class="col m10 button" id="view_item">
+        view items
+      </p>
+      <p class="col m10 button">
+        <a href="">oders</a>
+      </p>
+    </div>
+  </div>
+  <button>
+    <a href="/logout">logout</a>
+  </button>
 
-  <h1>this is <%= userType %> page</h1>
-  <a href="/logout">logout</a>
-  
-  <% if (userType && userType == 'admin')  {%>
-  <a href="/add_product">Them san pham</a>
-  <%}%>
-  
   <% if (err) { %>
-   <p><%= err %> </p>
+  <p><%= err %> </p>
   <% } %>
+  <div style="visibility: hidden; text-align: left;" id="list_item">
+    <% if (userType && userType == 'admin')  {%>
+    <% for (let i = 0; i < datas.length; i++) {%>
+    <a href="/edit_product/<%= datas[i].productName %> ">
+      <p><%= datas[i].productName %> - <%= datas[i].quantity %> </p>
+    </a>
+    <%}}%>
+  </div>
 
-  <% if (userType)  {%>
-  <% for (let i = 0; i < datas.length; i++) {%>
-   <a href="/edit_product/<%= datas[i].productName %> ">
-     <p><%= datas[i].productName %>
-   </a></p>
-  <%}}%>
+  <script>
+    const edit_item = document.getElementById('edit_item');
+    const add_item = document.getElementById('add_item');
+    const list_item = document.getElementById('list_item');
+    const view_item = document.getElementById('view_item');
+    edit_item.addEventListener('click', () => {
+      list_item.style.visibility = 'visible';
+    })
+    view_item.addEventListener('click', () => {
+      list_item.style.visibility = 'visible';
+    })
+  </script>
 </body>
 
 </html>
